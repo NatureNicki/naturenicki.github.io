@@ -1,0 +1,154 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Mountains of Christmas', cursive, Arial, sans-serif;
+  background-color: #a3d977; /* light green background */
+  color: #1f4d1f; /* dark green text */
+  position: relative;
+  overflow-x: hidden;
+  padding: 0 10px 40px;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+canvas#forestCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Container for header and nav */
+.top-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 10px auto 2rem auto;
+  padding: 0 5px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header styles */
+header {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow-x: auto;
+  text-align: left;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+header h1.bold {
+  font-size: 3rem;
+  color: white;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+header p {
+  display: inline-block;
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  vertical-align: middle;
+}
+
+/* Nav styles */
+nav {
+  flex-shrink: 0;
+  background: rgba(31, 77, 31, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a.bold {
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a.bold:hover {
+  background-color: #a8d5a1;
+  color: #1f4d1f;
+}
+
+/* Sections */
+section {
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  background: rgba(255 255 255 / 0.8);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  margin-top: 0;
+  font-weight: 700;
+  color: #1f4d1f;
+}
+
+.gallery img {
+  margin-right: 1rem;
+  border-radius: 6px;
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.downloads a {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #1f4d1f;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  color: #1f4d1f;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .top-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  header h1.bold {
+    font-size: 2.2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+    margin-left: 5px;
+  }
+}
