@@ -1,6 +1,7 @@
 const canvas = document.getElementById('forestCanvas');
 const ctx = canvas.getContext('2d');
 
+// Resize the canvas to always fill the window
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -8,6 +9,7 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 
+// Leaf class definition
 class Leaf {
   constructor() {
     this.reset();
@@ -15,13 +17,13 @@ class Leaf {
 
   reset() {
     this.x = Math.random() * canvas.width;
-    this.y = Math.random() * -canvas.height; // start above the screen
-    this.size = 5 + Math.random() * 5; // smaller leaves (5-10)
+    this.y = Math.random() * -canvas.height; // Start above the screen
+    this.size = 10 + Math.random() * 10; // Bigger leaves (10–20)
     this.speedY = 0.5 + Math.random() * 1.5;
     this.speedX = (Math.random() - 0.5) * 0.7;
     this.angle = Math.random() * 2 * Math.PI;
     this.angleSpeed = (Math.random() - 0.5) * 0.02;
-    this.color = `rgba(34, 139, 34, ${0.5 + Math.random() * 0.5})`; // dark green leaves with some transparency
+    this.color = `rgba(34, 139, 34, ${0.5 + Math.random() * 0.5})`; // Dark green with some transparency
   }
 
   update() {
@@ -29,7 +31,12 @@ class Leaf {
     this.x += this.speedX;
     this.angle += this.angleSpeed;
 
-    if (this.y > canvas.height || this.x < -this.size || this.x > canvas.width + this.size) {
+    // Reset if out of bounds
+    if (
+      this.y > canvas.height ||
+      this.x < -this.size ||
+      this.x > canvas.width + this.size
+    ) {
       this.reset();
     }
   }
@@ -41,7 +48,6 @@ class Leaf {
 
     ctx.fillStyle = this.color;
     ctx.beginPath();
-    // Simple leaf shape (ellipse)
     ctx.ellipse(0, 0, this.size * 0.6, this.size * 0.3, 0, 0, 2 * Math.PI);
     ctx.fill();
 
@@ -49,17 +55,19 @@ class Leaf {
   }
 }
 
+// Create leaf instances
 const leaves = [];
-const leafCount = 60; // fewer, smaller leaves
+const leafCount = 60; // Number of leaves
 
 for (let i = 0; i < leafCount; i++) {
   leaves.push(new Leaf());
 }
 
+// Animation loop
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  leaves.forEach(leaf => {
+  leaves.forEach((leaf) => {
     leaf.update();
     leaf.draw();
   });

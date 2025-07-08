@@ -1,15 +1,31 @@
 /* General styles */
 body {
   margin: 0;
-  font-family: 'Mountains of Christmas', cursive, Arial, sans-serif;
-  background-color: #a3d977; /* light green background */
-  color: #1f4d1f; /* dark green text */
+  font-family: 'jua-regular', cursive, Arial, sans-serif;
+  background-color: #00B24D;    
+    background-image: url('./background.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;       /* Stretch to 100% width only */
+    background-position: top center;  /* Centered horizontally */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  color: green;
   position: relative;
   overflow-x: hidden;
   padding: 0 10px 40px;
   min-height: 100vh;
   z-index: 0;
 }
+
+
+
+.jua-regular {
+  font-family: "Jua", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 canvas#forestCanvas {
   position: fixed;
@@ -108,10 +124,11 @@ h2 {
 }
 
 .gallery img {
-  margin-right: 1rem;
-  border-radius: 6px;
-  max-width: 300px;
-  max-height: 200px;
+  margin:0.5%;
+  border-radius:30%;
+  border-color:green;
+  border-width: 5px;
+  border-style: solid;
 }
 
 .downloads a {
